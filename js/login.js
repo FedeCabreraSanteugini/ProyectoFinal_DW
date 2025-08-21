@@ -52,3 +52,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Ocultar label cuando hay texto (efecto visual en inputs)
+(function() {
+  const inputs = document.querySelectorAll('.field .form-control');
+
+  function toggleHasValueClass(input) {
+    if (input.value.trim() !== '') {
+      input.classList.add('has-value');
+    } else {
+      input.classList.remove('has-value');
+    }
+  }
+
+  inputs.forEach(input => {
+    toggleHasValueClass(input);
+    input.addEventListener('input', () => toggleHasValueClass(input));
+  });
+})();
