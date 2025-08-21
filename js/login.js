@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (validarUsuario && validarContrasena) {
             // Ocultar mensaje de error por si estaba visible
             mensajeError.style.display = "none";
+
+             // Para guardar que el usuario inició sesión
+            localStorage.setItem("userLoggedIn", "true");
             
             // Redirigir a la página principal
             window.location.href = "index.html";
